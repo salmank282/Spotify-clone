@@ -6,12 +6,20 @@
     justify-content: center;
 }
 
+.justify-between{
+    justify-content: space-between;
+}
+
 .items-center{
     align-items: center;
 }
 
 .gap-10{
     gap: 10px;
+}
+
+.gap-16{
+    gap: 16px;
 }
 
 .border{
@@ -25,6 +33,10 @@
 
 .bg-black{
     background-color: black;
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }
 
 .h-24{
@@ -49,4 +61,12 @@
 
 .p-16{
     padding: 16px;
+}
+
+.p-12{
+    padding: 12px;
+}
+
+.ph-16{
+    padding: 0 16px;
 }

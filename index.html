@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="utility.css" />
   </head>
   <body>
-    <script src="script.js"></script>
     <div class="container flex">
-      <div class="left-container bg-black">
-        <div class="home-card rounded m-5 p-16 bg-grey">
+      <div class="left-container bg-black m-5">
+        <div class="home-card rounded  p-16 bg-grey">
           <div class="logo">
             <div>
               <img src="./img/logo.svg" class="invert h-24" alt="logo" />
@@ -26,14 +25,14 @@
             </div>
           </div>
         </div>
-        <div class="library-card rounded m-5 p-16 bg-grey">
+        <div class="library-card rounded  p-16 bg-grey">
           <div class="library-container">
             <div class="flex items-center gap-10">
                 <img src="./img/playlist.svg" class="h-24 invert" alt="playlist" />
                 <p>Your Library</p>
             </div>
             <div>
-              <img src="./img/" alt="" />
+              <img src="./img/plus.svg" alt="plus" />
             </div>
         </div>
             <div class="footer">
@@ -47,14 +46,32 @@
             </div>
         </div>
       </div>
-      <div class="right-container bg-black">
-        <div class="header p-16 bg-grey mv-5 rounded">
-            <div class="nav">
-                <img src="./img/arrow-left.svg" alt="arrow-left">
-                <img src="./img/arrow-right.svg" alt="arrow-right">
+      <div class="right-container bg-grey mv-5 rounded">
+        <div class="header flex justify-between items-center p-12">
+            <div class="nav flex gap-16">
+                <img class="h-24 cursor-pointer" src="./img/arrow-left.svg" alt="arrow-left">
+                <img class="h-24 cursor-pointer" src="./img/arrow-right.svg" alt="arrow-right">
+            </div>
+            <div class="flex gap-10">
+                <button class="sign-up-btn">Signup</button>
+                <button class="login-btn">Login</button>
+            </div>
+        </div>
+        <div class="playlist ph-16">
+            <h2>Spotify Playlist</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="play">
+                        <img src="./img/play.svg" alt="play">
+                    </div>
+                    <img class="playlist-cover" src="./img/cover.jpg" alt="">
+                    <p class="song-title">Happy hits!!</p>
+                    <p class="song-desc">Hits to boost your mood and fill you with happiness!</p>
+                </div>
             </div>
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
