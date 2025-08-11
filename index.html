@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify-Clone</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+  </head>
+  <body>
     <script src="script.js"></script>
-</body>
+    <div class="container flex">
+      <div class="left-container bg-black">
+        <div class="home-card rounded m-5 p-16 bg-grey">
+          <div class="logo">
+            <div>
+              <img src="./img/logo.svg" class="invert h-24" alt="logo" />
+            </div>
+            <div class="flex items-center gap-10">
+              <img src="./img/home.svg" class="h-24 invert" alt="home" />
+              <p>Home</p>
+            </div>
+            <div class="flex items-center gap-10">
+              <img src="./img/search.svg" class="h-24 invert" alt="search" />
+              <p>Search</p>
+            </div>
+          </div>
+        </div>
+        <div class="library-card rounded m-5 p-16 bg-grey">
+          <div class="library-container">
+            <div class="flex items-center gap-10">
+                <img src="./img/playlist.svg" class="h-24 invert" alt="playlist" />
+                <p>Your Library</p>
+            </div>
+            <div>
+              <img src="./img/" alt="" />
+            </div>
+        </div>
+            <div class="footer">
+                <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                </div>
+                <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+            </div>
+        </div>
+      </div>
+      <div class="right-container bg-black">
+        <div class="header p-16 bg-grey mv-5 rounded">
+            <div class="nav">
+                <img src="./img/arrow-left.svg" alt="arrow-left">
+                <img src="./img/arrow-right.svg" alt="arrow-right">
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
