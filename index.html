@@ -3,72 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify-Clone</title>
+    <title>Spotify - web player: Music for everyone</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
   </head>
   <body>
     <div class="container flex">
       <div class="left-container bg-black m-5">
-        <div class="home-card rounded  p-16 bg-grey">
+        <div class="home-card rounded p-16 bg-grey">
           <div class="logo">
             <div>
               <img src="./img/logo.svg" class="invert h-24" alt="logo" />
             </div>
-            <div class="flex items-center gap-10">
+            <div class="flex items-center gap-10 cursor-pointer">
               <img src="./img/home.svg" class="h-24 invert" alt="home" />
               <p>Home</p>
             </div>
-            <div class="flex items-center gap-10">
+            <div class="flex items-center gap-10 cursor-pointer">
               <img src="./img/search.svg" class="h-24 invert" alt="search" />
               <p>Search</p>
             </div>
           </div>
         </div>
-        <div class="library-card rounded  p-16 bg-grey">
+        <div class="library-card rounded p-16 bg-grey">
           <div class="library-container">
             <div class="flex items-center gap-10">
-                <img src="./img/playlist.svg" class="h-24 invert" alt="playlist" />
-                <p>Your Library</p>
+              <img
+                src="./img/playlist.svg"
+                class="h-24 invert"
+                alt="playlist"
+              />
+              <p>Your Library</p>
             </div>
             <div>
-              <img src="./img/plus.svg" alt="plus" />
+              <img class="cursor-pointer" src="./img/plus.svg" alt="plus" />
             </div>
-        </div>
-            <div class="footer">
-                <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
-                <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
-                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
-                </div>
-                <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
-                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
-                <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+          </div>
+          <div class="song-list pt-16">
+          </div>
+          <div class="footer">
+            <div>
+              <a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a>
             </div>
+            <div>
+              <a href="https://www.spotify.com/jp/privacy/"
+                ><span>Privacy Center</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/privacy-policy/"
+                ><span>Privacy Policy</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/cookies-policy/"
+                ><span>Cookies</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"
+                ><span>About Ads</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/accessibility/"
+                ><span>Accessibility</span></a
+              >
+            </div>
+          </div>
         </div>
       </div>
       <div class="right-container bg-grey mv-5 rounded">
         <div class="header flex justify-between items-center p-12">
-            <div class="nav flex gap-16">
-                <img class="h-24 cursor-pointer" src="./img/arrow-left.svg" alt="arrow-left">
-                <img class="h-24 cursor-pointer" src="./img/arrow-right.svg" alt="arrow-right">
-            </div>
-            <div class="flex gap-10">
-                <button class="sign-up-btn">Signup</button>
-                <button class="login-btn">Login</button>
-            </div>
+          <div class="nav flex gap-16">
+            <img
+              class="h-24 cursor-pointer"
+              src="./img/arrow-left.svg"
+              alt="arrow-left"
+            />
+            <img
+              class="h-24 cursor-pointer"
+              src="./img/arrow-right.svg"
+              alt="arrow-right"
+            />
+          </div>
+          <div class="flex gap-10">
+            <button class="sign-up-btn">Signup</button>
+            <button class="login-btn">Log In</button>
+          </div>
         </div>
         <div class="playlist ph-16">
-            <h2>Spotify Playlist</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="play">
-                        <img src="./img/play.svg" alt="play">
-                    </div>
-                    <img class="playlist-cover" src="./img/cover.jpg" alt="">
-                    <p class="song-title">Happy hits!!</p>
-                    <p class="song-desc">Hits to boost your mood and fill you with happiness!</p>
-                </div>
+          <h2>Spotify Playlist</h2>
+          <div class="card-container">
+            <div class="card">
+              <div class="play">
+                <img class="cursor-pointer" src="./img/play.svg" alt="play" />
+              </div>
+              <img
+                class="playlist-cover cursor-pointer"
+                src="./img/cover.jpg"
+                alt=""
+              />
+              <p class="song-title">Happy hits!!</p>
+              <p class="song-desc">
+                Hits to boost your mood and fill you with happiness!
+              </p>
             </div>
+          </div>
+        </div>
+        <div class="playbar">
+          <div class="song-buttons">
+            <img
+              class="cursor-pointer"
+              src="./img/prevsong.svg"
+              alt="previous_icon"
+            />
+            <img
+              id="play"
+              class="cursor-pointer"
+              src="./img/play.svg"
+              alt="play_icon "
+            />
+            <img
+              class="cursor-pointer"
+              src="./img/nextsong.svg"
+              alt="next_icon "
+            />
+          </div>
         </div>
       </div>
     </div>

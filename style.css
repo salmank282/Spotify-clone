@@ -26,6 +26,7 @@ body{
 
 .library-card{
     flex: 1;
+    max-height: 74%;
     position: relative;
 }
 
@@ -34,6 +35,38 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+
+.song-list{
+    display: flex;    
+    flex-flow: column;
+    gap: 8px;
+    max-height: 85%;
+    overflow-y: scroll;
+    overflow-x: clip;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.song-item{
+    display: flex;
+    gap: 10px;
+    min-width: 0;
+    border: 2px solid #2c2c2c;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.song-det p:first-child {
+    white-space: nowrap;       
+    overflow: hidden;         
+    max-width: 18vw;          
+}
+
+.song-det p:nth-child(2) {
+    color: grey;
+    font-size: 12px;
+}
+
 
 .logo{
     display: flex;
@@ -48,7 +81,6 @@ body{
     display: flex;
     gap: 10px;
     padding-bottom: 6px;
-    /* justify-content: center; */
     align-items: center;
     flex-wrap:wrap;
     font-size: 10px;
@@ -66,6 +98,7 @@ body{
 
 .right-container{
     width: 75vw;
+    position: relative;
 }
 
 .login-btn{
@@ -77,21 +110,34 @@ body{
     cursor: pointer;
 }
 
+.login-btn:hover{
+    padding:10px 18px;
+    font-weight: bold;
+}
+
 .sign-up-btn{
     background-color: transparent;
-    color: white;
+    color: grey;
     padding:8px 16px;
-    border:1px solid white;
+    border:1px solid grey;
     border-radius: 20px;
     cursor: pointer;
 }
 
+.sign-up-btn:hover{
+    color: white;
+    border:1px solid white;
+}
+
 .card-container{
+    overflow-y: scroll;
+    max-height: 78vh;
     margin: 20px 0px;
     display:flex;
     flex-wrap: wrap;
     gap: 10px;
 }
+
 .card{
     position: relative;
     background-color: #252525;
@@ -128,3 +174,21 @@ body{
 .song-desc{
     font-size: 12px;
 }
+
+.playbar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 96.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(22, 69, 22);
+    padding: 16px;
+}
+
+.song-buttons{
+    display: flex;
+    gap: 26px;
+}
+

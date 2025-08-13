@@ -63,10 +63,48 @@
     padding: 16px;
 }
 
+.pt-16{
+    padding-top: 16px;
+}
+
 .p-12{
     padding: 12px;
 }
 
 .ph-16{
     padding: 0 16px;
+}
+
+/* Chrome, Edge, Safari - Hide scrollbar arrows */
+::-webkit-scrollbar-button {
+    background-color: black;
+    display: none !important; /* hides both up/down arrows */
+    width: 0;
+    height: 0;
+}
+
+/* Custom scrollbar style */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 2px solid #121212;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #121212;
 }
