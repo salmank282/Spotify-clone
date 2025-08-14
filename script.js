@@ -1,43 +1,114 @@
+let currentSong = new Audio();
+let play = document.getElementById("play");
+let previous = document.getElementById("previous");
+let next = document.getElementById("next");
+let songs = [];
+let currentSongName = "";
+
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3002/songs");
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
-  let songs = [];
+  let songsArray = [];
   for (let i = 0; i < as.length; i++) {
     const element = as[i];
     if (element.href.endsWith("mp3")) {
-      songs.push(element.href);
+      songsArray.push(element.href);
     }
   }
-  return songs;
+  return songsArray;
+}
+
+function playMusic(songName, track) {
+  let div = document.querySelector(".playbar .song-title");
+  if (!div) {
+    let div = document.createElement("div");
+    // div.innerHTML = `<div class="song-title">${songName}</div>`;
+    div.className = "song-title";
+    div.textContent = songName;
+    document.querySelector(".playbar").prepend(div);
+  } else {
+    div.textContent = songName;
+  }
+
+  currentSong.src = track;
+  currentSong.play();
+  play.src = "/img/pause.svg";
+  currentSongName = songName;
+
+  currentSong.addEventListener("loadeddata", () => {
+    let duration = currentSong.duration;
+    console.log(`Playing song with duration: ${duration}`);
+  });
 }
 
 async function main() {
-  //get the list of all songs
-  let songs = await getSongs();
-  console.log(songs);
+  songs = await getSongs(); //get the list of all songs
   let songList = document.querySelector(".song-list");
   for (const song of songs) {
-    let songName = song.split("/songs/")[1].split(".mp3");
-    songList.innerHTML += `<div class="song-item">
-              <img src="./img/music.svg" alt="music" />
-              <div class="song-det"><p>${songName}</p><p>Artist</p></div>
-            </div>`;
+    let songName = song.split("/songs/")[1].replace(".mp3", "");
+    songList.innerHTML += `
+    <div class="song-item">
+        <img src="./img/music.svg" alt="music" />
+        <div class="song-det">
+            <p>${songName}</p>
+            <p>Artist</p>
+        </div>
+    </div>`;
   }
-  // Create a button for user interaction
-  let playButton = document.getElementById("play");
 
-  // Add event listener to play audio on button click
-  playButton.addEventListener("click", () => {
-    var audio = new Audio(songs[0]);
-    audio.play();
-    audio.addEventListener("loadeddata", () => {
-      let duration = audio.duration;
-      console.log(duration);
-    });
+  document.querySelector(".song-list").addEventListener("click", (e) => {
+    if (e.target.closest(".song-item")) {
+      let songItem = e.target.closest(".song-item");
+      let songName = songItem.querySelector(".song-det p").innerText;
+      console.log(`Playing song: ${songName}`);
+      let songIndex = songs.findIndex((song) => song.includes(songName));
+      if (songIndex !== -1) {
+        playMusic(songName, songs[songIndex]);
+      } else {
+        console.log("Song not found in the list.");
+      }
+    }
   });
+
+  play.addEventListener("click", () => {
+    if (!currentSong.src || currentSong.src === window.location.href) {
+      let firstSongName = songs[0].split("/songs/")[1].replace(".mp3", "");
+      playMusic(firstSongName, songs[0]);
+    } else if (currentSong.paused) {
+      currentSong.play();
+      play.src = "/img/pause.svg";
+    } else {
+      currentSong.pause();
+      play.src = "/img/play.svg";
+    }
+  });
+
+  previous.addEventListener("click", () => {
+    let songIndex = songs.findIndex((song) => song.includes(currentSongName));
+    if (songIndex > 0) {
+      let prevSongName = songs[songIndex - 1]
+        .split("/songs/")[1]
+        .replace(".mp3", "");
+      playMusic(prevSongName, songs[songIndex - 1]);
+    }
+  });
+
+  next.addEventListener("click", () => {
+    let songIndex = songs.findIndex((song) => song.includes(currentSongName));
+    if (songIndex>=0 && songIndex < songs.length-1) {
+      let nextSongName = songs[songIndex + 1]
+        .split("/songs/")[1]
+        .replace("mp.3", "");
+      playMusic(nextSongName, songs[songIndex + 1]);
+    }
+  });
+
+//   currentSong.addEventListener("timeupdate",()=>{
+
+//   })
 }
 
 main();

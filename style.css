@@ -26,7 +26,7 @@ body{
 
 .library-card{
     flex: 1;
-    max-height: 74%;
+    max-height: 71.5%;
     position: relative;
 }
 
@@ -40,7 +40,7 @@ body{
     display: flex;    
     flex-flow: column;
     gap: 8px;
-    max-height: 85%;
+    max-height: 82%;
     overflow-y: scroll;
     overflow-x: clip;
     scrollbar-width: none; /* Firefox */
@@ -59,7 +59,8 @@ body{
 .song-det p:first-child {
     white-space: nowrap;       
     overflow: hidden;         
-    max-width: 18vw;          
+    max-width: 18vw;
+    font-size: 14px;          
 }
 
 .song-det p:nth-child(2) {
@@ -177,18 +178,45 @@ body{
 
 .playbar{
     position: absolute;
-    bottom: 0;
+    border-radius: 8px;
+    bottom: 20px;
     left: 0;
     width: 96.5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(22, 69, 22);
-    padding: 16px;
+    flex-direction: column;
+    background-color: rgb(86, 160, 86);
+    padding: 8px 16px;
 }
 
 .song-buttons{
     display: flex;
+    justify-content: center;
     gap: 26px;
 }
 
+.seek-bar{
+    height: 2px;
+    border: 2px solid white;
+    background-color: white;
+    border-radius: 8px;
+    width: 99%;
+    margin: 6px;
+}
+
+.circle{
+    position: relative;
+    bottom: 6px;
+    left: -1%;
+    width: 13px;
+    height: 13px;
+    border-radius: 20px;
+    background-color: white;
+    transition: left 0.5s;
+}
+
+.song-time{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: white;
+}

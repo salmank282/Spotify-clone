@@ -39,8 +39,7 @@
               <img class="cursor-pointer" src="./img/plus.svg" alt="plus" />
             </div>
           </div>
-          <div class="song-list pt-16">
-          </div>
+          <div class="song-list pt-16"></div>
           <div class="footer">
             <div>
               <a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a>
@@ -114,6 +113,7 @@
         <div class="playbar">
           <div class="song-buttons">
             <img
+              id="previous"
               class="cursor-pointer"
               src="./img/prevsong.svg"
               alt="previous_icon"
@@ -125,10 +125,18 @@
               alt="play_icon "
             />
             <img
+              id="next"
               class="cursor-pointer"
               src="./img/nextsong.svg"
               alt="next_icon "
             />
+          </div>
+          <div class="seek-bar">
+            <div class="circle"></div>
+          </div>
+          <div class="song-time">
+            <p>00:00</p>
+            <p>00:00</p>
           </div>
         </div>
       </div>
