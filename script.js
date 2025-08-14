@@ -21,6 +21,13 @@ async function getSongs() {
   return songsArray;
 }
 
+function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
+    
+    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
 function playMusic(songName, track) {
   let div = document.querySelector(".playbar .song-title");
   if (!div) {
@@ -37,11 +44,6 @@ function playMusic(songName, track) {
   currentSong.play();
   play.src = "/img/pause.svg";
   currentSongName = songName;
-
-  currentSong.addEventListener("loadeddata", () => {
-    let duration = currentSong.duration;
-    console.log(`Playing song with duration: ${duration}`);
-  });
 }
 
 async function main() {
@@ -106,9 +108,11 @@ async function main() {
     }
   });
 
-//   currentSong.addEventListener("timeupdate",()=>{
-
-//   })
+  currentSong.addEventListener("timeupdate",()=>{
+    document.getElementById("time-progress").textContent=formatTime(currentSong.currentTime);
+    document.getElementById("duration").textContent=formatTime(currentSong.duration);
+    document.querySelector(".circle").style.left=(currentSong.currentTime/currentSong.duration *100) + "%"
+  })
 }
 
 main();
