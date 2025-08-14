@@ -192,26 +192,38 @@ body{
     display: flex;
     justify-content: center;
     gap: 26px;
+    /* padding-bottom: 16px; */
 }
 
-.seek-bar{
+.seek-bar-white{
+    position: sticky;
+    bottom: 21px;
     height: 3px;
     /* border: 2px solid g; */
+    background-color: grey;
+    border-radius: 8px;
+    width: 100%;
+    margin: 6px 0px;
+}
+
+.progress {
+    height: 3px;
+    width: 0%; /* Example progress */
     background-color: white;
     border-radius: 8px;
-    width: 99%;
-    margin: 6px;
-}
+    transition: width 0.5s ease-in-out;
+  }
+  
 
 .circle{
     position: relative;
-    bottom: 5px;
-    left: -1%;
+    bottom: 8px;
+    left: 0%;
     width: 13px;
     height: 13px;
     border-radius: 20px;
     background-color: white;
-    transition: left 0.5s;
+    transition: left 0.5s ease-in-out;
 }
 
 .song-time{

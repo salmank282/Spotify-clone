@@ -111,7 +111,8 @@ async function main() {
   currentSong.addEventListener("timeupdate",()=>{
     document.getElementById("time-progress").textContent=formatTime(currentSong.currentTime);
     document.getElementById("duration").textContent=formatTime(currentSong.duration);
-    document.querySelector(".circle").style.left=(currentSong.currentTime/currentSong.duration *100) + "%"
+    document.querySelector(".circle").style.left=(currentSong.currentTime/currentSong.duration *100) + "%";
+    document.querySelector(".progress").style.width=(currentSong.currentTime/currentSong.duration *100) + "%";
   })
 }
 
