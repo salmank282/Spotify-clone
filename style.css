@@ -191,10 +191,6 @@ body {
   transition: all 1s ease-in-out;
 }
 
-.song-title {
-  font-weight: bold;
-}
-
 .song-desc {
   font-size: 12px;
 }

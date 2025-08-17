@@ -47,38 +47,44 @@ function playMusic(songName, track) {
   play.src = "/img/pause.svg";
   currentSongName = songName;
 
-  if(!document.querySelector(".volume")){
-      let volume = document.createElement("div");
-      volume.className = "volume flex justify-center";
-      volume.innerHTML = `
+  if (!document.querySelector(".volume")) {
+    let volume = document.createElement("div");
+    volume.className = "volume flex justify-center";
+    volume.innerHTML = `
       <img src="./img/volume.svg" alt="volume">
       <input type="range" class="slider" value="100" name="volume" >`;
-    
-      if(currentSong.src && currentSong.src !== window.location.href){
-          document.querySelector(".playbar").appendChild(volume);
+
+    if (currentSong.src && currentSong.src !== window.location.href) {
+      document.querySelector(".playbar").appendChild(volume);
+    }
+
+    let mute = false;
+    const slider = volume.querySelector(".slider");
+    slider.addEventListener("input", (e) => {
+      const val = e.target.value;
+      currentSong.volume = val / 100;
+      if (val == 0) {
+        volume.querySelector("img").src = "./img/mute.svg";
+        mute = true;
+      } else {
+        volume.querySelector("img").src = "./img/volume.svg";
+        mute = false;
       }
+    });
 
-      const slider=volume.querySelector(".slider");
-      slider.addEventListener("input", (e) => {
-          currentSong.volume = e.target.value / 100;
-      });
-
-      let mute = false;
-      volume.querySelector("img").addEventListener("click", (e) => {
-        mute=!mute;
-        if (mute) {
-          e.target.src = "./img/mute.svg";
-          currentSong.volume = 0;
-          slider.value=0;
-        } else {
-            e.target.src = "./img/volume.svg";
-            currentSong.volume = 1;
-            slider.value=100;
-        }
-      });
+    volume.querySelector("img").addEventListener("click", (e) => {
+      mute = !mute;
+      if (mute) {
+        e.target.src = "./img/mute.svg";
+        currentSong.volume = 0;
+        slider.value = 0;
+      } else {
+        e.target.src = "./img/volume.svg";
+        currentSong.volume = 1;
+        slider.value = 100;
+      }
+    });
   }
-
-
 }
 
 async function displayAlbum() {
@@ -136,6 +142,10 @@ async function main() {
             </div>
         </div>`;
       }
+      firstSongAlbum = songs[0]
+        .split(`/songs/${folder}/`)[1]
+        .replace(".mp3", "");
+      playMusic(firstSongAlbum, songs[0]);
     });
   });
 
@@ -155,7 +165,9 @@ async function main() {
 
   play.addEventListener("click", () => {
     if (!currentSong.src || currentSong.src === window.location.href) {
-      let firstSongName = songs[0].split("/songs/")[1].replace(".mp3", "");
+      let firstSongName = songs[0]
+        .split(`/songs/${currFolder}/`)[1]
+        .replace(".mp3", "");
       playMusic(firstSongName, songs[0]);
     } else if (currentSong.paused) {
       currentSong.play();
@@ -170,7 +182,7 @@ async function main() {
     let songIndex = songs.findIndex((song) => song.includes(currentSongName));
     if (songIndex > 0) {
       let prevSongName = songs[songIndex - 1]
-        .split("/songs/")[1]
+        .split(`/songs/${currFolder}/`)[1]
         .replace(".mp3", "");
       playMusic(prevSongName, songs[songIndex - 1]);
     }
@@ -180,7 +192,7 @@ async function main() {
     let songIndex = songs.findIndex((song) => song.includes(currentSongName));
     if (songIndex >= 0 && songIndex < songs.length - 1) {
       let nextSongName = songs[songIndex + 1]
-        .split("/songs/")[1]
+        .split(`/songs/${currFolder}/`)[1]
         .replace("mp.3", "");
       playMusic(nextSongName, songs[songIndex + 1]);
     }
@@ -219,7 +231,6 @@ async function main() {
   document.querySelector(".close").addEventListener("click", () => {
     document.querySelector(".left-container").style.left = "-100%";
   });
-
 }
 
 main();
