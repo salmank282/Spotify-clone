@@ -87,6 +87,10 @@ function playMusic(songName, track) {
         slider.value = lastVolume * 100;
       }
     });
+
+    currentSong.addEventListener("ended",()=>{
+      next.click();
+    })
   }
 }
 
