@@ -12,8 +12,9 @@
       <div class="left-container bg-black m-5">
         <div class="home-card rounded p-16 bg-grey">
           <div class="logo">
-            <div>
-              <img src="./img/logo.svg" class="invert h-24" alt="logo" />
+            <div class="flex justify-between">
+              <img src="./img/logo.svg" class="invert h-34" alt="logo" />
+              <img src="./img/close.svg" class="close invert" alt="">
             </div>
             <div class="flex items-center gap-10 cursor-pointer">
               <img src="./img/home.svg" class="h-24 invert" alt="home" />
@@ -74,9 +75,12 @@
       </div>
       <div class="right-container bg-grey mv-5 rounded">
         <div class="header flex justify-between items-center p-12">
-          <div class="nav flex gap-16">
+          <div class="nav flex justify-between items-center gap-16">
+            <img 
+                class="h-34 cursor-pointer hamburger"
+                src="./img/hamburger.svg" alt="hamburger">
             <img
-              class="h-24 cursor-pointer"
+              class="h-4 cursor-pointer"
               src="./img/arrow-left.svg"
               alt="arrow-left"
             />
@@ -94,20 +98,6 @@
         <div class="playlist ph-16">
           <h2>Spotify Playlist</h2>
           <div class="card-container">
-            <div class="card">
-              <div class="play">
-                <img class="cursor-pointer" src="./img/play.svg" alt="play" />
-              </div>
-              <img
-                class="playlist-cover cursor-pointer"
-                src="./img/cover.jpg"
-                alt=""
-              />
-              <p class="song-title">Happy hits!!</p>
-              <p class="song-desc">
-                Hits to boost your mood and fill you with happiness!
-              </p>
-            </div>
           </div>
         </div>
         <div class="playbar">
@@ -129,9 +119,13 @@
               class="cursor-pointer"
               src="./img/nextsong.svg"
               alt="next_icon "
-            />
-          </div>
-          <div class="seek-bar-white">
+              />
+            </div>
+            <!-- <div class="volume flex justify-center">
+              <img src="./img/volume.svg" alt="volume">
+              <input type="range" class="slider" value="100" name="volume" >
+            </div> -->
+          <div class="seek-bar">
             <div class="progress"></div>
             <div class="circle"></div>
           </div>
