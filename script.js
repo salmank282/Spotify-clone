@@ -57,14 +57,14 @@ function playMusic(songName, track) {
     if (currentSong.src && currentSong.src !== window.location.href) {
       document.querySelector(".playbar").appendChild(volume);
     }
-    
+
     let mute = false;
     let lastVolume = 1;
     const slider = volume.querySelector(".slider");
     slider.addEventListener("input", (e) => {
       const val = e.target.value;
       currentSong.volume = val / 100;
-      lastVolume=currentSong.volume;
+      lastVolume = currentSong.volume;
       if (val == 0) {
         volume.querySelector("img").src = "./img/mute.svg";
         mute = true;
@@ -78,13 +78,13 @@ function playMusic(songName, track) {
       mute = !mute;
       if (mute) {
         e.target.src = "./img/mute.svg";
-        lastVolume=currentSong.volume;
+        lastVolume = currentSong.volume;
         currentSong.volume = 0;
         slider.value = 0;
       } else {
         e.target.src = "./img/volume.svg";
         currentSong.volume = lastVolume;
-        slider.value = lastVolume*100;
+        slider.value = lastVolume * 100;
       }
     });
   }
@@ -167,17 +167,30 @@ async function main() {
   });
 
   play.addEventListener("click", () => {
-    if (!currentSong.src || currentSong.src === window.location.href) {
-      let firstSongName = songs[0]
-        .split(`/songs/${currFolder}/`)[1]
-        .replace(".mp3", "");
-      playMusic(firstSongName, songs[0]);
-    } else if (currentSong.paused) {
-      currentSong.play();
-      play.src = "/img/pause.svg";
-    } else {
-      currentSong.pause();
-      play.src = "/img/play.svg";
+    if (currentSong.src && currentSong.src !== window.location.href) {
+      if (currentSong.paused) {
+        currentSong.play();
+        play.src = "/img/pause.svg";
+      } else {
+        currentSong.pause();
+        play.src = "/img/play.svg";
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (currentSong.src && currentSong.src !== window.location.href) {
+      if (e.code === "Space") {
+        e.preventDefault();
+
+        if (currentSong.paused) {
+          currentSong.play();
+          play.src = "/img/pause.svg";
+        } else {
+          currentSong.pause();
+          play.src = "/img/play.svg";
+        }
+      }
     }
   });
 
