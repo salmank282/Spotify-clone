@@ -22,6 +22,7 @@ Mobile view:
 
 - 🎧 **Music Playback**
   - Play, pause, next, and previous controls
+  - Auto play next song when the current one ends
   - Real-time duration and progress updates
   - Seek bar with draggable progress indicator
   - Spacebar → Play/Pause shortcut
