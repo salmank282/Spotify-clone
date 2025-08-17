@@ -196,7 +196,7 @@ async function main() {
     if (songIndex >= 0 && songIndex < songs.length - 1) {
       let nextSongName = songs[songIndex + 1]
         .split(`/songs/${currFolder}/`)[1]
-        .replace("mp.3", "");
+        .replace(".mp.3", "");
       playMusic(nextSongName, songs[songIndex + 1]);
     }
   });
