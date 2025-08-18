@@ -60,6 +60,11 @@ body {
   cursor: pointer;
 }
 
+.song-item:hover {
+  background-color: #2c2c2c;
+  border: 2px solid #65a77d;
+}
+
 .song-det p:first-child {
   white-space: nowrap;
   overflow: hidden;
