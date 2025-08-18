@@ -83,6 +83,9 @@ function playMusic(songName, track) {
         slider.value = 0;
       } else {
         e.target.src = "./img/volume.svg";
+        if(lastVolume===0){
+          lastVolume=0.5;
+        }
         currentSong.volume = lastVolume;
         slider.value = lastVolume * 100;
       }
